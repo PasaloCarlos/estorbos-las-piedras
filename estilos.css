@@ -1002,6 +1002,46 @@
   .disabled\:opacity-40:disabled {
     opacity: 40%;
   }
+  @media (width < 40rem) {
+    .max-sm\:sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    .max-sm\:col-start-2 {
+      grid-column-start: 2;
+    }
+    .max-sm\:row-span-4 {
+      grid-row: span 4 / span 4;
+    }
+    .max-sm\:block {
+      display: block;
+    }
+    .max-sm\:grid {
+      display: grid;
+    }
+    .max-sm\:grid-cols-\[2\.5rem_1fr\] {
+      grid-template-columns: 2.5rem 1fr;
+    }
+    .max-sm\:gap-x-2 {
+      column-gap: calc(var(--spacing) * 2);
+    }
+    .max-sm\:gap-y-1 {
+      row-gap: var(--spacing);
+    }
+    .max-sm\:p-0 {
+      padding: 0px;
+    }
+    .max-sm\:p-3 {
+      padding: calc(var(--spacing) * 3);
+    }
+  }
   @media (width >= 40rem) {
     .sm\:w-44 {
       width: calc(var(--spacing) * 44);
