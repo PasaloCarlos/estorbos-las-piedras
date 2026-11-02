@@ -2526,7 +2526,7 @@ const lista=document.getElementById("barrios");
 M.barrios.filter(b=>b.n>0).sort((a,b)=>b.n-a.n||a.nombre.localeCompare(b.nombre,"es")).forEach(b=>{
   const li=html("li","border-b border-linea");
   li.innerHTML='<button type="button" data-slug="'+b.slug+'" class="flex w-full justify-between py-2 text-left"><span class="text-enlace underline">'+esc(b.nombre)+'</span><span class="font-mono tabular-nums">'+b.n+(b.n===1?" propiedad":" propiedades")+"</span></button>";
-  li.firstChild.onclick=()=>{if(barrio===b.slug){vista=completa.slice();barrio=null}else{vista=encuadrar(ampliar(b.caja));barrio=b.slug}cerrar()};lista.appendChild(li)});
+  li.firstChild.onclick=()=>{if(barrio===b.slug){vista=completa.slice();barrio=null}else{vista=encuadrar(ampliar(b.caja));barrio=b.slug}cerrar();const fig=cont.closest("figure");if(fig.getBoundingClientRect().top<0)fig.scrollIntoView({behavior:"smooth",block:"start"})};lista.appendChild(li)});
 function ir(f){const p=M.puntos.find(x=>x.f===f);if(!p)return false;const w=M.ancho/ZOOM_PUNTO,h=w*(M.alto/M.ancho);
   vista=encuadrar([p.x-w/2,p.y-h/2,w,h]);barrio=null;sel=[p];fija=true;pintar();cont.closest("figure").scrollIntoView({behavior:"smooth",block:"start"});return true}
 document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a[href^='#punto-']");if(!a||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey)return;
